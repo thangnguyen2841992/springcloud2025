@@ -60,11 +60,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+<!--		thu vien spring doc open API, giup hien thi API tren giao dien tien cho viec kiem thu va quan ly-->
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
 			<version>2.7.0</version>
 		</dependency>
+<!--		thư viện Java được sử dụng để ánh xạ (mapping) giữa các đối tượng khác nhau, thường là giữa các lớp DTO (Data Transfer Object) và Entity trong các ứng dụng Java-->
 		<dependency>
 			<groupId>org.modelmapper</groupId>
 			<artifactId>modelmapper</artifactId>
