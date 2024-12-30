@@ -6,6 +6,8 @@ import com.thang.account_service.model.AccountDTO;
 import com.thang.account_service.model.MessageDTO;
 import com.thang.account_service.model.StatisticDTO;
 import com.thang.account_service.service.IAccountService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,9 +24,12 @@ public class AccountController {
 
     @Autowired
     INotificationService notificationService;
+    Logger logger = LoggerFactory.getLogger(AccountController.class);
 
     @GetMapping("/getAllAccount.do")
     public List<AccountDTO> getAllAccount() {
+        logger.info("Account Service Controller: get all accounts");
+        statisticService.createNewStatistic(new StatisticDTO("Get all accounts", new Date()));
         return accountService.getAllAccounts();
     }
 

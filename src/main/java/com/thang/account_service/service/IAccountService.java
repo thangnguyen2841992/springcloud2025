@@ -5,6 +5,8 @@ import com.thang.account_service.entity.Account;
 import com.thang.account_service.model.AccountDTO;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +31,8 @@ class AccountServiceImpl implements IAccountService {
 
     @Autowired
     ModelMapper modelMapper;
+
+    Logger logger = LoggerFactory.getLogger(AccountServiceImpl.class);
 
     @Override
     public void addAccount(AccountDTO accountDTO) {
@@ -68,6 +72,7 @@ class AccountServiceImpl implements IAccountService {
 
     @Override
     public List<AccountDTO> getAllAccounts() {
+        logger.info("Get all accounts in Account Service");
         List<AccountDTO> accountDTOS = new ArrayList<>();
         accountRepository.findAll().forEach(account -> accountDTOS.add(modelMapper.map(account, AccountDTO.class)));
         return accountDTOS;
