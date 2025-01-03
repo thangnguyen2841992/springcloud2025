@@ -34,7 +34,7 @@ public class AccountController {
     @GetMapping("/getAllAccount.do")
     public List<AccountDTO> getAllAccount() {
         logger.info("Account Service Controller: get all accounts");
-//        statisticService.createNewStatistic(new StatisticDTO("Get all accounts", new Date()));
+        statisticService.createNewStatistic(new StatisticDTO("Get all accounts", new Date()));
         return accountService.getAllAccounts();
     }
     //hasAuthority can chu ROLE_
